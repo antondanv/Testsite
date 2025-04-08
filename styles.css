@@ -600,12 +600,9 @@ section {
 
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 30px;
-    justify-content: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+    margin-top: 40px;
 }
 
 .portfolio-item {
@@ -1286,6 +1283,30 @@ section {
         text-align: left;
         padding-left: 20px;
     }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-top: 30px;
+    }
+
+    .portfolio-item {
+        max-width: 100%;
+    }
+
+    .portfolio-img img {
+        height: 250px;
+    }
+
+    .portfolio-filters {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .filter-btn {
+        width: 100%;
+        margin: 0;
+    }
 }
 
 @media screen and (max-width: 576px) {
@@ -1367,4 +1388,5 @@ section {
     .hero-btns {
         margin-bottom: 50px;
     }
+} 
 } 
