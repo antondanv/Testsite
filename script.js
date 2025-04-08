@@ -91,16 +91,30 @@ window.addEventListener('scroll', () => {
 window.addEventListener('resize', updateScrollButtonStyle);
 
 // Mobile Menu Toggle
-menuToggle.addEventListener('click', () => {
-    menuToggle.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    // Обработчик клика по кнопке меню
+    menuToggle.addEventListener('click', function() {
+        menuToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
 
-// Close mobile menu when a link is clicked
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        menuToggle.classList.remove('active');
-        navMenu.classList.remove('active');
+    // Закрытие меню при клике по ссылке
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            menuToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+
+    // Закрытие меню при клике вне его области
+    document.addEventListener('click', function(event) {
+        if (!event.target.closest('.nav-menu') && !event.target.closest('.menu-toggle')) {
+            menuToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+        }
     });
 });
 
